@@ -1,4 +1,4 @@
-import { BelongsTo, DataTypes, Model } from "sequelize";
+import { DataTypes, Model } from "sequelize";
 import {
     CommentHistoryState,
     FriendsState,
@@ -374,8 +374,6 @@ const createAdmin = async () => {
     console.log(`Created admin account (${config.admin.username})`);
 };
 
-try {
-    createAdmin();
-} catch (e) {
+createAdmin().catch((e) => {
     console.error("There was an error creating admin account! ", e);
-}
+});

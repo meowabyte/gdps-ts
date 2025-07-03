@@ -1,6 +1,6 @@
 {
     "name": "gdps-ts",
-    "description": "My attempt at implementing fully working Geometry Dash private server using Bun + Typescript"
+    "description": "My attempt at implementing fully working Geometry Dash private server using Bun + Typescript",
     "module": "src/index.ts",
     "type": "module",
     "private": true,
@@ -19,6 +19,7 @@
     "dependencies": {
         "bun-plugin-tailwind": "^0.0.15",
         "mariadb": "^3.4.2",
-        "sequelize": "^6.37.7"
+        "sequelize": "^6.37.7",
+        "tailwindcss": "^4.1.11"
     }
 }

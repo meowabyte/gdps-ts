@@ -1,5 +1,4 @@
 import { User } from "../util/db";
-import UserObject from "../util/decoder/user";
 import { authOnly, query } from "../util/http";
 
 export default authOnly(async (r, account) => {
@@ -121,10 +120,7 @@ export default authOnly(async (r, account) => {
     });
 
     if (!created) {
-        for (const [k, v] of Object.entries(newUser)) {
-            console.log(k, v);
-            user.set(k, v);
-        }
+        for (const [k, v] of Object.entries(newUser)) user.set(k, v);
         user.save();
     }
 

@@ -1,5 +1,3 @@
-import { User } from "../db";
-
 export enum MessageState {
     ALL = 0,
     FRIENDS_ONLY = 1,

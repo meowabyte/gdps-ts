@@ -1,8 +1,7 @@
-import { writeFile, exists } from "fs/promises";
+import { writeFile, exists, readFile } from "fs/promises";
 import { join } from "path";
 import { ROOT_PATH } from ".";
 import { existsSync, mkdirSync } from "fs";
-import { readFile } from "fs/promises";
 
 const BACKUPS_PATH = join(ROOT_PATH, "save");
 if (!existsSync(BACKUPS_PATH)) mkdirSync(BACKUPS_PATH, { recursive: true });

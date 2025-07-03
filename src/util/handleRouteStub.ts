@@ -19,7 +19,7 @@ const reqToBoomlings = ({ url: u, body, headers, method }: Request) => {
 export default async (r: Request) => {
     const req = reqToBoomlings(r);
 
-    console.log(
+    console.warn(
         [
             "Not implemented route:",
             `${req.method} ${req.url}`,
@@ -28,8 +28,6 @@ export default async (r: Request) => {
             await req.clone().text(),
         ].join("\n")
     );
-
-    // TODO: boomling bridge
 
     return new Response("-1", { status: 404 });
 };

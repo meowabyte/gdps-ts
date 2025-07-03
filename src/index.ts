@@ -62,6 +62,7 @@ Bun.serve({
         console.error(error);
         return new Response("-1", { status: 500 });
     },
+    development: IS_DEV,
 });
 
 console.log(

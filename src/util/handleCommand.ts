@@ -1,5 +1,5 @@
 import { Glob } from "bun";
-import type { Account, User } from "./db";
+import type { Account } from "./db";
 import { join } from "path";
 import { SRC_PATH } from ".";
 import type { Promisable } from "../types";
