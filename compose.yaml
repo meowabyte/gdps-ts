@@ -1,0 +1,34 @@
+services:
+  gdps:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+        - ./gdps.config.ts:/app/gdps.config.ts:ro
+        - ./bunfig.toml:/app/bunfig.toml:ro
+        - ./src:/app/src:ro
+        - ./static:/app/static:ro
+    ports:
+        - 1337:1337
+    networks:
+      - gdps
+    env_file:
+      - ./db.env
+    
+  db:
+    image: mariadb:latest
+    networks:
+      - gdps
+    env_file:
+      - ./db.env
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      start_period: 10s
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      
+
+networks:
+  gdps:
